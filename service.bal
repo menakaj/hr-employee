@@ -23,6 +23,11 @@ service /employee/v1 on employeeListener {
         return employeeList;
     }
 
+    resource function get employees2() returns EmployeeList {
+        EmployeeList employeeList = {count: 3, employees: employees};
+        return employeeList;
+    }
+
     resource function get employees/[int empID]() returns Employee|http:NotFound {
         Employee[] listResult = from Employee employee in employees where employee.id == empID select employee;
 
