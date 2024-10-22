@@ -15,7 +15,7 @@ type EmployeeList record {
 
 Employee[] employees = [{id: 1, name: "John_v2", address: "V2"},
                            {id: 2, name: "Doe_v2", address: "V2"},
-                           {id: 3, name: "Smith_v2", address: "V2"}];
+                           {id: 3, name: "Smith_v2_1", address: "V2_1"}];
 
 service /employee/v1 on employeeListener {
     resource function get employees() returns EmployeeList {
