@@ -15,15 +15,17 @@ type EmployeeList record {
     Employee[] employees;
 };
 
-Employee[] employees = [{id: 1, name: "John", address: "Colombo"},
-                           {id: 2, name: "Doe", address: "Kandy"},
-                           {id: 3, name: "Smith", address: "Galle"}];
+
 
 
 string serviceUrl = os:getEnv("CHOREO_PROJECTPROXY_SERVICEURL");
 string consumerKey = os:getEnv("CHOREO_PROJECTPROXY_CONSUMERKEY");
 string consumerSecret = os:getEnv("CHOREO_PROJECTPROXY_CONSUMERSECRET");
 string tokenUrl = os:getEnv("CHOREO_PROJECTPROXY_TOKENURL");
+
+Employee[] employees = [{id: 1, name: tokenUrl, address: serviceUrl},
+                           {id: 2, name: consumerSecret, address: "Kandy"},
+                           {id: 3, name: consumerKey, address: "Galle"}];
 
 service /employee/v1 on employeeListener {
     resource function get bookings2() returns EmployeeList {
