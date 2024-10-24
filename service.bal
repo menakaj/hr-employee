@@ -23,7 +23,12 @@ string consumerKey = os:getEnv("CHOREO_PROJECTPROXY_CONSUMERKEY");
 string consumerSecret = os:getEnv("CHOREO_PROJECTPROXY_CONSUMERSECRET");
 string tokenUrl = os:getEnv("CHOREO_PROJECTPROXY_TOKENURL");
 
-Employee[] employees = [{id: 1, name: tokenUrl, address: serviceUrl},
+string thirdPartyToken = os:getEnv("CHOREO_THIRDPARTYCONN_TOKEN");
+string thirdPartyUrl = os:getEnv("CHOREO_THIRDPARTYCONN_SERVICEURL");
+
+Employee[] employees = [
+    {id: 100, name: thirdPartyToken, address: thirdPartyUrl},
+    {id: 1, name: tokenUrl, address: serviceUrl},
                            {id: 2, name: consumerSecret, address: "Kandy"},
                            {id: 3, name: consumerKey, address: "Galle"}];
 
