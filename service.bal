@@ -1,4 +1,6 @@
 import ballerina/http;
+import ballerina/os;
+import ballerina/io;
 
 listener http:Listener employeeListener = new(9090);
 
@@ -17,8 +19,15 @@ Employee[] employees = [{id: 1, name: "John", address: "Colombo"},
                            {id: 2, name: "Doe", address: "Kandy"},
                            {id: 3, name: "Smith", address: "Galle"}];
 
+
+string serviceUrl = os:getEnv("CHOREO_PROJECTPROXY_SERVICEURL");
+string consumerKey = os:getEnv("CHOREO_PROJECTPROXY_CONSUMERKEY");
+string consumerSecret = os:getEnv("CHOREO_PROJECTPROXY_CONSUMERSECRET");
+string tokenUrl = os:getEnv("CHOREO_PROJECTPROXY_TOKENURL");
+
 service /employee/v1 on employeeListener {
-    resource function get employees() returns EmployeeList {
+    resource function get bookings2() returns EmployeeList {
+        io:println(serviceUrl, consumerKey, consumerSecret, tokenUrl);
         EmployeeList employeeList = {count: 3, employees: employees};
         return employeeList;
     }
