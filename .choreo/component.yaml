@@ -33,5 +33,5 @@ dependencies:
   connectionReferences:
    - name: ProjectProxy
      resourceRef: service:/testnewsnippet/swaggerpetstoresnippet/v1/proxy/PUBLIC
-   - name: ThirdPartyConn
-     resourceRef: thirdparty:TestThirdParty/v1
+   - name: sadasd
+     resourceRef: thirdparty:newService2/v1
