@@ -5,3 +5,7 @@ endpoints:
   service:
      port: 9090
   type: REST
+  basePath: /employee/v1
+  networkVisibilities: 
+      - Public
+  schemaFilePath: openapi.yaml
