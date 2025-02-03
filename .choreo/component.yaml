@@ -1,0 +1,7 @@
+schemaVersion: 1.1 
+ # Example endpoint configuration
+endpoints:
+- name: HR-EmployeeService
+  service:
+     port: 9090
+  type: REST
