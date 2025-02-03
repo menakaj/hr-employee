@@ -4,9 +4,9 @@ endpoints:
 - name: hr-employee
   displayName: HR Employee Service
   service:
+     basePath: /employee/v1
      port: 9090
   type: REST
-  basePath: /employee/v1
   networkVisibilities: 
       - Public
   schemaFilePath: openapi.yaml
