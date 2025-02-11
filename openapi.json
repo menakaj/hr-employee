@@ -152,7 +152,10 @@
         "flows": {
           "implicit": {
             "authorizationUrl": "https:///authorize",
-            "scopes": {}
+            "scopes": {
+              "read": "",
+              "write":" "
+            }
           }
         }
       }
