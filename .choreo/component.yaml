@@ -27,3 +27,21 @@ configurations:
         configForm:
           displayName: DB Password
           type: secret
+  file:
+    - name: logging_config.yaml
+      mountPath: /src/resources
+      type: yaml
+      values:
+        - name: logging
+          valueFrom:
+            configForm:
+              displayName: Logging
+              type: object
+              properties:
+                - name: logger_name
+                  displayName: Logger Name
+                - name: level
+                  displayName: Level
+                  values:
+                    - info
+                    - debug
