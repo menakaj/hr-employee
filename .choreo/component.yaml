@@ -1,4 +1,4 @@
-schemaVersion: 1.1 
+schemaVersion: 1.2
  # Example endpoint configuration
 endpoints:
 - name: hr-employee
@@ -10,3 +10,20 @@ endpoints:
   networkVisibilities: 
       - Public
   schemaFilePath: openapi.yaml
+
+configurations:
+  env:
+    - name: REDIS_URL
+      valueFrom:
+        configForm:
+          displayName: Redis URL
+          required: false
+    - name: DB_USER
+      valueFrom:
+        configForm: {}
+
+    - name: DB_PASSWORD
+      valueFrom:
+        configForm:
+          displayName: DB Password
+          type: secret
