@@ -1,15 +1,15 @@
 schemaVersion: 1.2
- # Example endpoint configuration
+  # Example endpoint configuration
 endpoints:
-- name: hr-employee
-  displayName: HR Employee Service
-  service:
-     basePath: /employee/v1
-     port: 9090
-  type: REST
-  networkVisibilities: 
+  - name: hr-employee
+    displayName: HR Employee Service
+    service:
+      basePath: /employee/v1
+      port: 9090
+    type: REST
+    networkVisibilities:
       - Public
-  schemaFilePath: openapi.yaml
+    schemaFilePath: openapi.yaml
 
 configurations:
   env:
