@@ -1,4 +1,5 @@
 import ballerina/http;
+import ballerina/io;
 
 listener http:Listener employeeListener = new(9090);
 
@@ -13,6 +14,8 @@ type EmployeeList record {
     Employee[] employees;
 };
 
+public configurable string test = ?;
+
 Employee[] employees = [{id: 1, name: "John", address: "Colombo"},
                            {id: 2, name: "Doe", address: "Kandy"},
                            {id: 3, name: "Smith", address: "Galle"}];
@@ -20,6 +23,7 @@ Employee[] employees = [{id: 1, name: "John", address: "Colombo"},
 service /employee/v1 on employeeListener {
     resource function get employees() returns EmployeeList {
         EmployeeList employeeList = {count: 3, employees: employees};
+        io:println(test);
         return employeeList;
     }
 
