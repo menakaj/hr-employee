@@ -1,5 +1,5 @@
 import ballerina/http;
-import ballerina/io;
+import ballerina/uuid;
 
 listener http:Listener employeeListener = new(9090);
 
@@ -14,16 +14,21 @@ type EmployeeList record {
     Employee[] employees;
 };
 
-public configurable string test = ?;
-
 Employee[] employees = [{id: 1, name: "John", address: "Colombo"},
                            {id: 2, name: "Doe", address: "Kandy"},
                            {id: 3, name: "Smith", address: "Galle"}];
 
 service /employee/v1 on employeeListener {
     resource function get employees() returns EmployeeList {
-        EmployeeList employeeList = {count: 3, employees: employees};
-        io:println(test);
+        EmployeeList employeeList = {count: employees.length(), employees: employees};
+        // Generate 100 random employees with long names and addresses
+        // Generate a long random name and address
+        foreach int i in 0...1000 {
+            string name = string `${uuid:createType4AsString()} ${i}`;
+            string address = string `${uuid:createType4AsString()} ${i}`;
+            Employee employee = {id: i + 4, name: name, address: address};
+            employees.push(employee);
+        }
         return employeeList;
     }
 
