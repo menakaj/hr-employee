@@ -13,7 +13,7 @@ type EmployeeList record {
     Employee[] employees;
 };
 
-configurable Eployee employee = ?;
+configurable Employee employee = ?;
 
 Employee[] employees = [{id: 1, name: "John", address: "Colombo"},
                            {id: 2, name: "Doe", address: "Kandy"},
